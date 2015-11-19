@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   version="1.1"
+   id="svg2"
+   viewBox="0 0 744.09448819 1052.3622047"
+   height="297mm"
+   width="210mm">
+  <defs
+     id="defs4">
+    <linearGradient
+       id="linearGradient4168">
+      <stop
+         id="stop4170"
+         offset="0"
+         style="stop-color:#004bc5;stop-opacity:1;" />
+      <stop
+         id="stop4172"
+         offset="1"
+         style="stop-color:#004bc5;stop-opacity:0;" />
+    </linearGradient>
+    <radialGradient
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.5041693,-0.01759424,0.01840855,1.5737863,-116.64115,-99.67168)"
+       r="52.022854"
+       fy="180.60056"
+       fx="224.75894"
+       cy="180.60056"
+       cx="224.75894"
+       id="radialGradient4174"
+       xlink:href="#linearGradient4168" />
+  </defs>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1">
+    <path
+       d="m 179.96185,154.92102 a 52.022854,50.507626 0 0 1 71.19641,-17.84175 52.022854,50.507626 0 0 1 18.45739,69.10254 52.022854,50.507626 0 0 1 -71.15473,17.9978 52.022854,50.507626 0 0 1 -18.61807,-69.06189 l 44.91609,25.48284 z"
+       id="path3338"
+       style="fill:url(#radialGradient4174);fill-opacity:1;stroke:none;stroke-width:0.98400003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       id="text3353"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><textPath
+         id="textPath3357"
+         xlink:href="#path3338"><tspan
+   dy="-4.1199999"
+   id="tspan3355">ABCD</tspan></textPath></text>
+  </g>
+</svg>
