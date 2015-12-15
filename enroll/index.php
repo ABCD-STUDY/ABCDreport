@@ -177,7 +177,7 @@ if (isset($_POST["submit"])) {
 			<form role="form" method="post" action="index.php">
 
 				<div class="form-group">
-					<label for="contactType" class="control-label">What is your role? *</label>
+					<label for="contactType" class="control-label">What is your role? *</label><br>
 					<label class="radio-inline"><input type="radio" name="contactType" value="schoolOfficial" checked>School official</label>
 					<label class="radio-inline"><input type="radio" name="contactType" value="student">Student</label>
 					<label class="radio-inline"><input type="radio" name="contactType" value="teacher">Teacher</label>
@@ -204,7 +204,7 @@ if (isset($_POST["submit"])) {
 				</div>
 
 				<div class="form-group">
-					<label for="preferredContact" class="control-label">Preferred contact method *</label>
+					<label for="preferredContact" class="control-label">Preferred contact method *</label><br>
 					<label class="radio-inline"><input type="radio" name="preferredContact" value="email" checked>Email</label>
 					<label class="radio-inline"><input type="radio" name="preferredContact" value="phone">Phone</label>
 					<?php echo "<p class='text-danger'>$errPreferredContact</p>";?>
