@@ -8,7 +8,7 @@
  date_default_timezone_set('America/Los_Angeles');
 
  //$pw_file = "passwords.json";
- $pw_file = "/Users/alex/Sites/ABCDreport/code/php/passwords.json";
+ $pw_file = "../../code/php/passwords.json";
  $audit_file = "../../logs/audit.log";
  $audit_on = 1;
 

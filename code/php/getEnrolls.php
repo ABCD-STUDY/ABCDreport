@@ -1,5 +1,5 @@
 <?php
-  $enroll_file = "/Users/alex/Sites/ABCDreport/applications/enroll/enroll.json";
+  $enroll_file = "../../applications/enroll/enroll.json";
 
   date_default_timezone_set('America/Los_Angeles');
   session_start(); /// initialize session

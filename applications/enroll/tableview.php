@@ -105,7 +105,7 @@
 function reloadEnrolls() {
   // remove all rows from the table
   jQuery('#enrolls-list').children().remove();
-  jQuery.getJSON('/ABCDreport/code/php/getEnrolls.php?action=load', function( refs ) {
+  jQuery.getJSON('../../code/php/getEnrolls.php?action=load', function( refs ) {
     console.log( refs.length );
     refs.sort(function(a,b) { return b.date - a.date; });
     for (var i = 0; i < refs.length; i++) {
