@@ -8,7 +8,7 @@
   <meta name="description" content="ABCD Study Interest Form">
   <meta name="author" content="ABCD Study">
 
-  <title>ABCD Study Opt-out Form</title>
+  <title>Parents Opt-out</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
@@ -18,7 +18,7 @@
 
 <body>
   <div class="container">
-    <h1 class="page-header text-center">Opt-out of the ABCD Study?</h1>
+    <h1 class="page-header text-center">Parents Opt-out</h1>
     <form role="form" method="post" action="process.php">
 
       <input type="hidden" name="opted" value="opt-out"/>
@@ -39,11 +39,12 @@
       </div>
 
       <div class="form-group">
-        <label for="message" class="control-label">Additional comments</label>
+        <label for="message" class="control-label">Leave us a message</label>
         <textarea class="form-control" rows="4" name="message"></textarea>
       </div>
 
       <div class="form-group">
+        <label for="spamCheck" class="control-label">To make sure that you are not a robot, add the two numbers.</label><br>
         <label for="spamCheck" class="control-label">2 + 3 = ? *</label>
         <input type="text" class="form-control" id="spamCheckID" name="spamCheck" placeholder="Your Answer">
       </div>
