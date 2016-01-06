@@ -1,5 +1,5 @@
 <?php
-  include '../../code/php/getEnrolls.php';
+  include 'getEnrolls.php';
 
   $d = loadEnrolls();
   $count = count($d);

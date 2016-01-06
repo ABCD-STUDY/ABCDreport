@@ -1,9 +1,9 @@
 <?php
-  $enroll_file = "../../applications/enroll/enroll.json";
+  $enroll_file = "enroll.json";
 
   date_default_timezone_set('America/Los_Angeles');
   session_start(); /// initialize session
-  include("AC.php");
+  include("../../code/php/AC.php");
   $user_name = check_logged(); /// function checks if visitor is logged.
   if (!$user_name)
      return; // nothing

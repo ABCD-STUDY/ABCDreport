@@ -1,5 +1,5 @@
 <?php
-  include '../../code/php/getEnrolls.php';
+  include 'getEnrolls.php';
 
   date_default_timezone_set('America/Los_Angeles');
 
