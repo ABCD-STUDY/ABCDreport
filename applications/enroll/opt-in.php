@@ -8,7 +8,7 @@
   <meta name="description" content="ABCD Study Interest Form">
   <meta name="author" content="ABCD Study">
 
-  <title>ABCD Study Opt-in Form</title>
+  <title>Parents Opt-In</title>
 
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
   <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
@@ -17,7 +17,7 @@
 
 <body>
   <div class="container">
-    <h1 class="page-header text-center">Interested in the ABCD Study?</h1>
+    <h1 class="page-header text-center">Parents Opt-In</h1>
     <form role="form" method="post" action="process.php">
 
       <input type="hidden" name="opted" value="opt-in"/>
@@ -53,7 +53,7 @@
       </div>
 
       <div class="form-group">
-        <label for="schoolName" class="control-label">Select your school name *</label>
+        <label for="schoolName" class="control-label">Select your school name *</label><br>
         <label for="schoolName" class="control-label">If your school is not part of the list we are currently unable to accept your request for contact.</label>
         <select class="form-control" name="schoolName" id="schoolNameID">
           <optgroup label="Group 1">
@@ -72,18 +72,19 @@
       </div>
 
       <div class="form-group">
-        <label for="message" class="control-label">Additional comments</label>
+        <label for="message" class="control-label">Is there anything else you'd like to tell us?</label>
         <textarea class="form-control" rows="4" name="message"></textarea>
       </div>
 
       <div class="form-group">
+        <label for="spamCheck" class="control-label">To make sure that you are not a robot, add the two numbers.</label><br>
         <label for="spamCheck" class="control-label">2 + 3 = ? *</label>
         <input type="text" class="form-control" id="spamCheckID" name="spamCheck" placeholder="Your Answer">
       </div>
 
       <div class="form-group">
         <label for="delcare" class="control-label"></label>
-        <label for="declare" class="control-label">By declaring my interest, I agree to be contacted by the ABCD Study.</label>
+        <label for="declare" class="control-label">I agree to be contacted by the ABCD Study.</label>
       </div>
 
       <div class="form-group">
@@ -122,9 +123,15 @@
 
       // fill in the school names from a JSON file
       jQuery.getJSON('schools.json', function(data) {
+        // do nothing
+      })
+      .done(function(data) {
         console.log("Fill in the school names from a JSON file");
         jQuery('#schoolNameID').select2( { data: data } );
-        
+      })
+      .fail(function() {
+        console.log("error: schools.json is empty");
+        jQuery('#schoolNameID').select2( { data: null } );
       });
     });
 
