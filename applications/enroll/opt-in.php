@@ -56,18 +56,20 @@
         <label for="schoolName" class="control-label">Select your school name *</label><br>
         <label for="schoolName" class="control-label">If your school is not part of the list we are currently unable to accept your request for contact.</label>
         <select class="form-control" name="schoolName" id="schoolNameID">
-          <optgroup label="Group 1">
+          <option value="noneSelected">None selected</option>
+          <optgroup label="Site 1">
         </select>
       </div>
 
       <div class="form-group">
         <label for="referredBy" class="control-label">How did you hear about our study? *</label>
         <div class="referredBy">
-          <label class="radio-inline" name="flyer"><input type="radio" name="referredBy" value="mail" checked>Mailed packet</label>
-          <label class="radio-inline" name="email"><input type="radio" name="referredBy" value="email">Received an email</label>
-          <label class="radio-inline" name="phone"><input type="radio" name="referredBy" value="phone">Received a phone call</label>
-          <label class="radio-inline" name="phone"><input type="radio" name="referredBy" value="child">My child told me</label>
-          <label class="radio-inline" name="other"><input type="radio" name="referredBy" value="other">Other reason</label>
+          <label class="radio-inline" name="flyer"><input type="radio" name="referredBy" id="referredByID" value="mail">Mailed packet</label>
+          <label class="radio-inline" name="email"><input type="radio" name="referredBy" id="referredByID" value="email">Received an email</label>
+          <label class="radio-inline" name="phone"><input type="radio" name="referredBy" id="referredByID" value="phone">Received a phone call</label>
+          <label class="radio-inline" name="phone"><input type="radio" name="referredBy" id="referredByID" value="child">My child told me</label>
+          <label class="radio-inline" name="other"><input type="radio" name="referredBy" id="referredByID" value="other">Other reason</label>
+          <label class="radio-inline" name="noneSelected"><input type="radio" name="referredBy" id="referredByID" value="noneSelected" checked hidden></label>
         </div>
       </div>
 
@@ -106,10 +108,14 @@
       var field1 = (jQuery('#nameID').val() != "");
       var field2 = (jQuery('#emailID').val() != "");
       var field3 = (jQuery('#phoneID').val() != "");
-      var field4 = (jQuery('#spamCheckID').val() == "5");
+      console.log(jQuery('#schoolNameID option:selected').val());
+      var field4 = (jQuery('#schoolNameID option:selected').val() != "noneSelected");
+      console.log(jQuery('#referredByID:checked').val());
+      var field5 = (jQuery('#referredByID:checked').val() != "noneSelected");
+      var field6 = (jQuery('#spamCheckID').val() == "5");
 
       // if all the fields are valid, then enable the submit button
-      if (field1 && field2 && field3 && field4) {
+      if (field1 && field2 && field3 && field4 && field5 && field6) {
         jQuery('#submitID').removeAttr('disabled');
       } else {
         jQuery('#submitID').attr('disabled', 0);
@@ -143,6 +149,14 @@
       checkEverything();
     });
     jQuery('#phoneID').change(function() {
+      checkEverything();
+    });
+    jQuery('#schoolNameID').change(function () {
+      console.log("schoolName select changed");
+      checkEverything();
+    });
+    jQuery("input[name=referredBy]:radio").change(function () {
+      console.log("referredBy radio button changed");
       checkEverything();
     });
     jQuery('#spamCheckID').bind('keyup change', function() {
