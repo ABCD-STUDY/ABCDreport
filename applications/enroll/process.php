@@ -1,5 +1,5 @@
 <?php
-  include 'getEnrolls.php';
+  include 'getContacts.php';
 
   date_default_timezone_set('America/Los_Angeles');
 
@@ -72,7 +72,7 @@
       echo "Error: message was not set";
     }
 
-    addEnroll( $opted, $name, $email, $phone, $preferredContact, $schoolName, $referredBy, $message );
+    addContact( $opted, $name, $email, $phone, $preferredContact, $schoolName, $referredBy, $message );
 
     if (strcmp($opted, "opt-in") == 0) {
       $result='<div class="alert alert-success">Thank you for sending us your contact information. We will be in touch!</div>';

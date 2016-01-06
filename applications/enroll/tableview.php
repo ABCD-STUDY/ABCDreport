@@ -66,7 +66,7 @@
     <hr>
 
     <div>
-      <table class="table-striped table table-condensed" id="enrolls-table">
+      <table class="table-striped table table-condensed" id="contacts-table">
         <thead>
           <tr>
             <th>Date</th>
@@ -80,7 +80,7 @@
             <th>Message</th>
           </tr>
         </thead>
-        <tbody id="enrolls-list"></tbody>
+        <tbody id="contacts-list"></tbody>
       </table>
     </div>
 
@@ -102,17 +102,17 @@
 
 <script type="text/javascript">
 
-function reloadEnrolls() {
+function reloadContacts() {
   // remove all rows from the table
-  jQuery('#enrolls-list').children().remove();
-  jQuery.getJSON('getEnrolls.php?action=load', function( refs ) {
+  jQuery('#contacts-list').children().remove();
+  jQuery.getJSON('getContacts.php?action=load', function( refs ) {
     console.log( refs.length );
     refs.sort(function(a,b) { return b.date - a.date; });
     for (var i = 0; i < refs.length; i++) {
       var d = new Date(refs[i].date*1000);
-      jQuery('#enrolls-list').append('<tr enroll-id="' + refs[i].id + '" title="last changed: ' + d.toDateString() + '"><td>'+ refs[i].date + '</td><td>'+ refs[i].opted + '</td><td>'+ refs[i].name + '</td><td>' + refs[i].email + '</td><td>' + refs[i].phone + '</td><td>' + refs[i].preferredContact + '</td><td>' + refs[i].schoolName + '</td><td>' + refs[i].referredBy + '</td><td>' + refs[i].message + '</td></tr>');
+      jQuery('#contacts-list').append('<tr contact-id="' + refs[i].id + '" title="last changed: ' + d.toDateString() + '"><td>'+ refs[i].date + '</td><td>'+ refs[i].opted + '</td><td>'+ refs[i].name + '</td><td>' + refs[i].email + '</td><td>' + refs[i].phone + '</td><td>' + refs[i].preferredContact + '</td><td>' + refs[i].schoolName + '</td><td>' + refs[i].referredBy + '</td><td>' + refs[i].message + '</td></tr>');
     }
-    jQuery('#enrolls-table').DataTable();
+    jQuery('#contacts-table').DataTable();
   });
 }
 
@@ -132,7 +132,7 @@ jQuery('document').ready(function() {
   if (typeof user_name != 'undefined') {
     jQuery('#user_name').text(user_name);
   }
-  reloadEnrolls();
+  reloadContacts();
 });
 
 </script>

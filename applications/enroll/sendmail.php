@@ -1,7 +1,7 @@
 <?php
-  include 'getEnrolls.php';
+  include 'getContacts.php';
 
-  $d = loadEnrolls();
+  $d = loadContacts();
   $count = count($d);
   echo $count . "\n";
 
