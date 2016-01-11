@@ -70,14 +70,11 @@
         <thead>
           <tr>
             <th>Date</th>
+            <th>ID</th>
             <th>Opted</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Preferred contact</th>
             <th>School name</th>
+            <th>Preferred contact</th>
             <th>Referred by</th>
-            <th>Message</th>
           </tr>
         </thead>
         <tbody id="contacts-list"></tbody>
@@ -110,7 +107,7 @@ function reloadContacts() {
     refs.sort(function(a,b) { return b.date - a.date; });
     for (var i = 0; i < refs.length; i++) {
       var d = new Date(refs[i].date*1000);
-      jQuery('#contacts-list').append('<tr contact-id="' + refs[i].id + '" title="last changed: ' + d.toDateString() + '"><td>'+ refs[i].date + '</td><td>'+ refs[i].opted + '</td><td>'+ refs[i].name + '</td><td>' + refs[i].email + '</td><td>' + refs[i].phone + '</td><td>' + refs[i].preferredContact + '</td><td>' + refs[i].schoolName + '</td><td>' + refs[i].referredBy + '</td><td>' + refs[i].message + '</td></tr>');
+      jQuery('#contacts-list').append('<tr contact-id="' + refs[i].id + '" title="last changed: ' + d.toDateString() + '"><td>'+ refs[i].date + '</td><td>'+ refs[i].id + '</td><td>'+ refs[i].opted + '</td><td>' + refs[i].schoolName + '</td><td>' + refs[i].preferredContact + '</td><td>' + refs[i].referredBy + '</td></tr>');
     }
     jQuery('#contacts-table').DataTable();
   });

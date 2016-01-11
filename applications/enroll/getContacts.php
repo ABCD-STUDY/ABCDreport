@@ -42,7 +42,7 @@
         return;
      }
      if (!is_writable($contacts_file)) {
-        echo ('Error: cannot write projects file ('.$contacts_file.')');
+        echo ('error: cannot write projects file ('.$contacts_file.')');
         return;
      }
 
@@ -59,22 +59,20 @@
         // seems to have worked, now rename this file to pw_file
         rename($testfn, $contacts_file);
      } else {
-        syslog(LOG_EMERG, 'ERROR: could not write file into '.$testfn);
+        syslog(LOG_EMERG, 'error: could not write file into '.$testfn);
      }
   }
 
-  function addContact( $opted, $name, $email, $phone, $preferredContact, $schoolName, $referredBy, $message ) {
+  function addContact( $id, $opted, $schoolName, $preferredContact, $referredBy ) {
     $d = loadContacts();
     $now = date("F_j_Y_g:i_a");
-    // create a new id
-    $id = md5( $email );
     // do not store PII in the database. replace PII with NA string for now
-    array_push($d, array( 'date' => $now, 'id' => $id, 'opted' => $opted, 'name' => "NA", 'email' => "NA", 'phone' => "NA", 'preferredContact' => $preferredContact, 'schoolName' => $schoolName, 'referredBy' => $referredBy, 'message' => "NA" ) );
+    array_push($d, array( 'date' => $now, 'id' => $id, 'opted' => $opted, 'schoolName' => $schoolName, 'preferredContact' => $preferredContact, 'referredBy' => $referredBy ) );
     saveContacts($d);
     return $id;
   }
 
-  function changeContact( $id, $opted, $name, $email, $phone, $preferredContact, $schoolName, $referredBy, $message ) {
+  function changeContact( $id, $opted, $schoolName, $preferredContact, $referredBy ) {
      $d = loadContacts();
      foreach ( $d as &$prot ) {
         if ($prot['id'] == $id ) {
@@ -82,13 +80,9 @@
      //$prot['date'] = time(); // time last changed
      $prot['date'] = date("F_j_Y_g:i_a"); // time last changed
      $prot['opted'] = $opted;
-	   $prot['name'] = "NA";
-	   $prot['email'] = "NA";
-	   $prot['phone'] = "NA";
-	   $prot['preferredContact'] = $preferredContact;
 	   $prot['schoolName'] = $schoolName;
+     $prot['preferredContact'] = $preferredContact;
      $prot['referredBy'] = $referredBy;
-     $prot['message'] = $message;
 	   break;
         }
      }
@@ -125,44 +119,23 @@
   else
     $opted = null;
 
-  if (isset($_GET['name']))
-    $name = $_GET['name'];
+  if (isset($_GET['schoolName']))
+    $schoolName = $_GET['schoolName'];
   else
-    $name = null;
-
-  if (isset($_GET['email']))
-    $email = $_GET['email'];
-  else
-    $email = null;
-
-  if (isset($_GET['phone']))
-    $phone = $_GET['phone'];
-  else
-    $phone = null;
+    $schoolName = null;
 
   if (isset($_GET['preferredContact']))
     $preferredContact = $_GET['preferredContact'];
   else
     $preferredContact = null;
 
-  if (isset($_GET['schoolName']))
-    $schoolName = $_GET['schoolName'];
-  else
-    $schoolName = null;
-
   if (isset($_GET['referredBy']))
     $referredBy = $_GET['referredBy'];
   else
     $referredBy = null;
 
-  if (isset($_GET['message']))
-    $message = $_GET['message'];
-  else
-    $message = null;
-
-
   if ($action == "create") {
-    $id = addContact( $opted, $name, $email, $phone, $preferredContact, $schoolName, $referredBy, $message ); 
+    $id = addContact( $id, $opted, $schoolName, $preferredContact, $referredBy ); 
     echo ("{ \"id\": ".$id."}");
     return;
   } else if ($action == "remove") {
@@ -170,7 +143,7 @@
     echo ("{ \"num\": ".$num."}");
     return;  
   } else if ($action == "change") {  
-    changeContact( $id, $opted, $name, $email, $phone, $preferredContact, $schoolName, $referredBy, $message );
+    changeContact( $id, $opted, $schoolName, $preferredContact, $referredBy );
     echo ("{ \"message\": \"done\" }");
     return;  
   } else if ($action == "load") {  
