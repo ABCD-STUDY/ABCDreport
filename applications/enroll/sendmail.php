@@ -1,15 +1,16 @@
 <?php
-  include 'getContacts.php';
+  //include 'getContacts.php';
 
-  $d = loadContacts();
-  $count = count($d);
-  echo $count . "\n";
+  //$d = loadContacts();
+  //$count = count($d);
+  //echo $count . "\n";
 
   $to = "alexdecastro2@gmail.com";
   $subject = "New Contacts for ABCD Study";
 
-  $message = $count . ' new contacts have signed in since yesterday.<br>';
-  $message .= '<a href=\"localhost/ABCDreport/applications/User/login.php\">Click here to see the contacts.</a>';
+  //$message = $count . ' new contacts have signed in since yesterday.<br>';
+  //$message .= '<a href=\"/applications/User/login.php\">Click here to see the contacts.</a>';
+  $message = "hello";
   echo $message . "\n";
 
   $header = "From:abcd-study@ucsd.edu \r\n";
