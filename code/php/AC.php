@@ -485,9 +485,9 @@ syslog(LOG_EMERG, 'try to remove permission '.$name.' ('.$id.') from '.$role['na
       	$qs = $_SERVER['QUERY_STRING'];
         audit( "check_logged failed", "" );
         if ($qs != "")
-           header("Location: /ABCDreport/applications/User/login.php".$_SERVER['QUERY_STRING']."&url=".$_SERVER['PHP_SELF']);
+           header("Location: ../../applications/User/login.php".$_SERVER['QUERY_STRING']."&url=".$_SERVER['PHP_SELF']);
         else
-           header("Location: /ABCDreport/applications/User/login.php"."?url=".$_SERVER['PHP_SELF']);
+           header("Location: ../../applications/User/login.php"."?url=".$_SERVER['PHP_SELF']);
      };
      // store that this user has logged in now
      setUserVariable( $_SESSION["logged"], "lastTimeLoggedIn", date(DATE_RFC2822) );
