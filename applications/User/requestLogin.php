@@ -99,8 +99,8 @@ $headers  = 'MIME-Version: 1.0' . "\r\n";
 $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
    // Additional headers
-$headers .= 'To: Hauke Bartsch <hbartsch@ucsd.edu>' . "\r\n";
-$headers .= 'From: '.$system.' <mmiladmin@ucsd.edu>' . "\r\n";
+$headers .= 'To: Alex DeCastro <adecastro@ucsd.edu>' . "\r\n";
+$headers .= 'From: '.$system.' <adecastro@ucsd.edu>' . "\r\n";
 $headers .= 'Cc: '.$email. "\r\n";
    //$headers .= 'Bcc: birthdaycheck@example.com' . "\r\n";
 
