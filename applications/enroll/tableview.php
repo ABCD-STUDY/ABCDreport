@@ -1,32 +1,30 @@
 <?php
   session_start();
 
-  if (isset($_SESSION['project_name'])) {
-    echo('<script type="text/javascript"> project_name = "'.$_SESSION['project_name'].'"; </script>'."\n");
-  }
-
   include("../../code/php/AC.php");
   $user_name = check_logged(); /// function checks if visitor is logged.
   $admin = false;
-  $adminuser = false;
 
   if ($user_name == "") {
     // user is not logged in
+    alert("User is not logged in");
   } else {
+
+    // store the user_name
     echo('<script type="text/javascript"> user_name = "'.$user_name.'"; </script>'."\n");
-    // print out all the permissions
-    $permissions = list_roles($user_name);
-    //print_r($permissions);
-    $p = "<script type=\"text/javascript\"> permissions = [";
-    foreach($permissions as $perm) {
-      $p = $p."\"".$perm."\",";
+
+    // store the list of roles
+    $roles = list_roles($user_name);
+    //print_r($roles);
+    $r = "<script type=\"text/javascript\"> roles = [";
+    foreach($roles as $role) {
+      $r = $r."\"".$role."\",";
     }
-    echo ($p."]; </script>\n");
-    if (check_role( "admin" )) {
+    echo ($r."]; </script>\n");
+
+    // store the admin flag
+    if (check_role("admin")) {
      $admin = true;
-    }
-    if ($user_name == "admin") {
-      $adminuser = true;
     }
     echo('<script type="text/javascript"> admin = '.($admin?"true":"false").'; </script>');
 
@@ -57,14 +55,20 @@
 
     <h1 class="page-header text-center">ABCD Study Contacts</h1>
 
+    <!-- User administration -->
     <div>
-      <a href="#" class="btn btn-primary" onclick="logout();">Logout</a>
-      <label>Logged in as: </label>
-      <label id="user_name"></label>
+      <div>
+        <a href="#" class="btn btn-primary" onclick="logout();">Logout</a>
+        <label>Logged in as: </label><label id="user_name"></label>
+      </div>
+      <div>
+        <a href="../User/admin.php" class="btn btn-primary" id="user_admin_button">User Administration</a>
+        <label>Roles: </label><label id="roles"></label>
+      </div>
     </div>
-
     <hr>
 
+    <!-- List of contacts -->
     <div>
       <table class="table-striped table table-condensed" id="contacts-table">
         <thead>
@@ -83,8 +87,6 @@
 
 </div>
 
-<script src='../../js/moment.min.js'></script>
-
 <!-- jQuery Version 2.1.4 -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
@@ -95,23 +97,9 @@
 <script src="../../js/excellentexport.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="../../js/bootstrap.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
-
-function reloadContacts() {
-  // remove all rows from the table
-  jQuery('#contacts-list').children().remove();
-  jQuery.getJSON('getContacts.php?action=load', function( refs ) {
-    console.log( refs.length );
-    refs.sort(function(a,b) { return b.date - a.date; });
-    for (var i = 0; i < refs.length; i++) {
-      var d = new Date(refs[i].date*1000);
-      jQuery('#contacts-list').append('<tr contact-id="' + refs[i].id + '" title="last changed: ' + d.toDateString() + '"><td>'+ refs[i].date + '</td><td>'+ refs[i].id + '</td><td>'+ refs[i].opted + '</td><td>' + refs[i].schoolName + '</td><td>' + refs[i].preferredContact + '</td><td>' + refs[i].referredBy + '</td></tr>');
-    }
-    jQuery('#contacts-table').DataTable();
-  });
-}
 
 // logout the current user
 function logout() {
@@ -125,10 +113,40 @@ function logout() {
   });
 }
 
+function reloadContacts() {
+  // remove all rows from the table
+  jQuery('#contacts-list').children().remove();
+
+  // fill the table with the list of contacts
+  jQuery.getJSON('getContacts.php?action=load', function( refs ) {
+    console.log( refs.length );
+    refs.sort(function(a,b) { return b.date - a.date; });
+    for (var i = 0; i < refs.length; i++) {
+      var d = new Date(refs[i].date*1000);
+      jQuery('#contacts-list').append('<tr contact-id="' + refs[i].id + '" title="last changed: ' + d.toDateString() + '"><td>'+ refs[i].date + '</td><td>'+ refs[i].id + '</td><td>'+ refs[i].opted + '</td><td>' + refs[i].schoolName + '</td><td>' + refs[i].preferredContact + '</td><td>' + refs[i].referredBy + '</td></tr>');
+    }
+    jQuery('#contacts-table').DataTable();
+  });
+}
+
 jQuery('document').ready(function() {
+
   if (typeof user_name != 'undefined') {
     jQuery('#user_name').text(user_name);
+    if (user_name == "admin") {
+      console.log(user_name + "YES");
+    } else {
+      console.log(user_name + "NO");
+    }
   }
+
+  // if the user is an admin, then show the user admin button
+  if (admin) {
+    jQuery('#user_admin_button').prop('disabled', false);
+  } else {
+    jQuery('#user_admin_button').prop('disabled', true);
+  }
+
   reloadContacts();
 });
 
