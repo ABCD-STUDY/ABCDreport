@@ -56,17 +56,15 @@
           <span class="mdl-layout-title">&nbsp;&nbsp;ABCD REPORT</span>
           <div class="mdl-layout-spacer"></div>
 
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-	    <label class="mdl-button mdl-js-button mdl-button--icon" for="login">
-	      <i class="material-icons md-icon">account_box</i>
-	    </label>
-	    <span class="user_name">unknown</span>
-	    <div class="mdl-textfield__expandable-holder">
-	      <div class="mdl-textfield__label" id="login">change password</div>
-	      <div class="mdl-textfield__label">logout</div>
-	    </div>
-	  </div>
-	  
+          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="account">
+            <i class="material-icons">account_box</i>
+          </button>
+          <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="account">
+            <li class="mdl-menu__item">change password</li>
+            <li class="mdl-menu__item" onclick="logout();">logout</li>
+          </ul>
+	  <span class="user_name" title="Current user">unknown</span>
+
 
 <!--	  <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
             <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
@@ -89,8 +87,6 @@
       </header>
       <main class="mdl-layout__content mdl-color--grey-100">
 
-	<div><p>This page showcases report capabilities of the Adolescent Brain Cognitive Development projects Data Analysis and Informatics Core.</p></div>
-	
         <div class="mdl-grid">
           <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" style="position: relative; height: 450px;">
               <div id="map-canvas" style="position: absolute; left: 0px; top: 0px; overflow: hidden; width: 100%; height: 100%; z-index: 0"></div>
@@ -356,12 +352,27 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.min.js"></script>
     <script>
 
+      // logout the current user
+function logout() {
+    jQuery.get('/code/php/logout.php', function(data) {
+	if (data == "success") {
+	    // user is logged out, reload this page
+	} else {
+	    alert('something went terribly wrong during logout: ' + data);
+	}
+	window.location.href = "applications/User/login.php";
+    });
+}
+      
       var marker = [];
       var infowindows = [];
 
       
       jQuery(document).ready(function() {          
-          // create map
+
+         jQuery('.user_name').text(user_name);
+
+      // create map
           google.maps.event.addDomListener(window, 'load', initialize);
           jQuery('#calendar').fullCalendar({			
              header: {
