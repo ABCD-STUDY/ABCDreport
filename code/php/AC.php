@@ -66,7 +66,7 @@
      // be more careful here, we need to write first to a new file, make sure that this
      // works and copy the result over to the pw_file
      $testfn = $pw_file . '_test';
-     file_put_contents($testfn, json_encode($d));
+     file_put_contents($testfn, json_encode($d, JSON_PRETTY_PRINT));
      if (filesize($testfn) > 0) {
         // seems to have worked, now rename this file to pw_file
 	rename($testfn, $pw_file);
