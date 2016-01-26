@@ -17,12 +17,14 @@ if (isset($_POST["ac"]) && $_POST["ac"]=="log") { /// do after login form is sub
           echo 'Incorrect username/password. Please, try again.';
      };
 };
+print_r(array_key_exists($_SESSION["logged"],$USERS));
 if (array_key_exists($_SESSION["logged"],$USERS)) {
      $l = strlen('/login.php');
-     if (isset($_POST["url"]) && $l > 0 && substr($_POST["url"],-$l) === '/login.php')
+     if (isset($_POST["url"]) && $l > 0 && substr($_POST["url"],-$l) === '/login.php') {
         $u = $_POST["url"];
-     else
-        $u = "../enroll/tableview.php";
+     } else {
+        $u = "/index.php";
+     }
      header("Location: ".$u); // if user is logged go to front page
 }
 ?>
@@ -32,8 +34,8 @@ if (array_key_exists($_SESSION["logged"],$USERS)) {
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Login to Data Portal">
-	<title>Login to Data Portal</title>
+	<meta name="description" content="Login to ABCD REPRT">
+	<title>Login to the ABCD Report page</title>
 
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -54,7 +56,7 @@ if (array_key_exists($_SESSION["logged"],$USERS)) {
   <div class="container">
    <div class="row">
      <div class="hero-unit">
-       <h1>Data Portal</h2>
+       <h1>ABCD Report</h2>
        <p class="lead">
          This page requires a login. Logins are provided by the system administration.
        </p>

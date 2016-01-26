@@ -40,6 +40,14 @@
       z-index: 900;
     }
     </style>
+
+<?php
+   session_start();
+   include("code/php/AC.php");
+   $user_name = check_logged(); /// function checks if visitor is logged.
+   echo('<script type="text/javascript"> user_name = "'.$user_name.'"; </script>'."\n");   
+?>
+    
   </head>
   <body>
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -47,7 +55,20 @@
         <div class="mdl-layout__header-row">
           <span class="mdl-layout-title">&nbsp;&nbsp;ABCD REPORT</span>
           <div class="mdl-layout-spacer"></div>
+
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+	    <label class="mdl-button mdl-js-button mdl-button--icon" for="login">
+	      <i class="material-icons md-icon">account_box</i>
+	    </label>
+	    <span class="user_name">unknown</span>
+	    <div class="mdl-textfield__expandable-holder">
+	      <div class="mdl-textfield__label" id="login">change password</div>
+	      <div class="mdl-textfield__label">logout</div>
+	    </div>
+	  </div>
+	  
+
+<!--	  <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
             <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
               <i class="material-icons">search</i>
             </label>
@@ -55,7 +76,7 @@
               <input class="mdl-textfield__input" type="text" id="search" />
               <label class="mdl-textfield__label" for="search">Enter your query...</label>
             </div>
-          </div>
+          </div> -->
           <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
             <i class="material-icons">more_vert</i>
           </button>

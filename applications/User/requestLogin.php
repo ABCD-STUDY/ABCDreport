@@ -117,8 +117,8 @@ return;
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Login to Data Portal">
-	<title>Login to Data Portal</title>
+	<meta name="description" content="Login to ABCD Report">
+	<title>Login to ABCD Report</title>
 
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -144,7 +144,7 @@ return;
 
           <div class="container">
            <div class="hero-unit">
-             <h1>Data Portal</h2>
+             <h1>ABCD Report Portal</h2>
                <p class="lead">
                  Request access by providing your information and agreeing to our data use and data sharing policy.
                </p>
