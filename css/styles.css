@@ -386,3 +386,29 @@ _:-ms-input-placeholder, :root .demo-graph {
 #cite a{background:#e2e2e2;text-decoration:none;color:#821122;}
 
 #vis .siteLabel {stroke: #333333 1pt; font-family:Arial; margin-left: 10px;}
+
+.assessment-block {
+    position: relative;
+    height: 280px;
+    background: rgba(0,0,0,0);
+}
+.assessment-block-lmt {
+    position: relative;
+    height: 280px;
+    background: rgba(0, 0, 0, 0) url("/images/6.png") no-repeat scroll center top / cover ;
+}
+.assessment-block-tlfb {
+    position: relative;
+    height: 280px;
+    background: rgba(0, 0, 0, 0) url("/images/Timeline.jpg") no-repeat scroll center top / cover ;
+}
+.assessment-text {
+    background-color: #37474f;
+    height: 100px;
+    padding: 5px;
+    bottom: 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    color: #fff;
+}

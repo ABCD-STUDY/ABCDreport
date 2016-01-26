@@ -45,7 +45,13 @@
    session_start();
    include("code/php/AC.php");
    $user_name = check_logged(); /// function checks if visitor is logged.
-   echo('<script type="text/javascript"> user_name = "'.$user_name.'"; </script>'."\n");   
+   echo('<script type="text/javascript"> user_name = "'.$user_name.'"; </script>'."\n");
+
+   $admin = false;
+   if (check_role( "admin" )) {
+     $admin = true;
+   }
+   
 ?>
     
   </head>
@@ -65,6 +71,14 @@
           </ul>
 	  <span class="user_name" title="Current user">unknown</span>
 
+<?php if ($admin) : ?>
+          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="admin" title="Adminstrative tools">
+            <i class="material-icons">edit</i>
+          </button>
+          <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="admin">
+            <li class="mdl-menu__item"><a href="/applications/User/admin.php">User administration</a></li>
+          </ul>	  
+<?php endif; ?>
 
 <!--	  <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
             <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
@@ -74,7 +88,7 @@
               <input class="mdl-textfield__input" type="text" id="search" />
               <label class="mdl-textfield__label" for="search">Enter your query...</label>
             </div>
-          </div> -->
+          </div>
           <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
             <i class="material-icons">more_vert</i>
           </button>
@@ -82,18 +96,37 @@
             <li class="mdl-menu__item">About</li>
             <li class="mdl-menu__item">Contact</li>
             <li class="mdl-menu__item">Legal information</li>
-          </ul>
+          </ul> -->
         </div>
       </header>
       <main class="mdl-layout__content mdl-color--grey-100">
 
+	<div class="mdl-grid">
+	  <div class="mdl-cell--3--col mdl-cell mdl-shadown--2dp assessment-block-tlfb">
+	    <div class="assessment-text">
+              <div class="mdl-typography--display-2 mdl-typography--font-thin">Timeline Followback</div>
+	      <p class="mdl-typography--headline mdl-typography--font-thin">Capture substance use profiles</p>
+            </div>
+	  </div>
+	  <div class="mdl-cell--3--col mdl-cell mdl-shadown--2dp assessment-block-lmt">
+	    <div class="assessment-text">
+              <div class="mdl-typography--display-2 mdl-typography--font-thin">Little Man Task</div>
+	      <p class="mdl-typography--headline mdl-typography--font-thin">Is he left or right handed?</p>
+            </div>
+	  </div>
+	  <div class="mdl-cell--3--col mdl-cell mdl-shadown--2dp assessment-block">
+	    <div class="assessment-text">
+              <div class="mdl-typography--display-2 mdl-typography--font-thin"></div>
+	      <p></p>
+            </div>
+	  </div>
+	</div>
+	
         <div class="mdl-grid">
           <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" style="position: relative; height: 450px;">
               <div id="map-canvas" style="position: absolute; left: 0px; top: 0px; overflow: hidden; width: 100%; height: 100%; z-index: 0"></div>
           </div>        
         </div>        
-        
-        
         
         <div class="mdl-grid" >
           <div class="demo-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--10-col">
