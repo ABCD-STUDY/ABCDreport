@@ -9,7 +9,7 @@
     $_SESSION['subjid'] = $_GET['subjid'];
   }
   if (isset($_GET['session'])) {
-    $_SESSION['session'] = $_GET['session'];
+    $_SESSION['sessionid'] = $_GET['session'];
   }
   
 ?>
