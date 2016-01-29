@@ -390,25 +390,32 @@ _:-ms-input-placeholder, :root .demo-graph {
 .assessment-block {
     position: relative;
     height: 280px;
-    background: rgba(0,0,0,0);
+    box-shadow: 0;
+    transition: box-shadow .1s;
+    border: 0px;
+}
+.assessment-block:hover {
+    box-shadow: 0 0 5px #515151;
 }
 .assessment-block-lmt {
-    position: relative;
-    height: 280px;
     background: rgba(0, 0, 0, 0) url("/images/6.png") no-repeat scroll center top / cover ;
 }
 .assessment-block-tlfb {
-    position: relative;
-    height: 280px;
     background: rgba(0, 0, 0, 0) url("/images/Timeline.jpg") no-repeat scroll center top / cover ;
 }
 .assessment-text {
     background-color: #37474f;
     height: 100px;
-    padding: 5px;
+    padding-top: 5px;
     bottom: 0;
     position: absolute;
     text-align: center;
     width: 100%;
     color: #fff;
+}
+
+.a-only-inherit {
+    text-decoration: none;
+    color: inherit;
+    font: inherit;
 }
