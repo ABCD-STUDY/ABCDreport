@@ -11,5 +11,8 @@
   if (isset($_GET['session'])) {
     $_SESSION['sessionid'] = $_GET['session'];
   }
+  if (isset($_GET['act_subst'])) {
+    $_SESSION['act_subst'] = $_GET['act_subst'];
+  }
   
 ?>
