@@ -69,7 +69,7 @@
   </nav>
 
   <!-- List of contacts -->
-  <div>
+  <div class="container">
     <table class="table-striped table table-condensed" id="contacts-table">
       <thead>
         <tr>
@@ -85,19 +85,19 @@
     </table>
   </div>
 
-<!-- jQuery Version 2.1.4 -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-<script src="//cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
-<script src="//cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js"></script>
+  <!-- jQuery Version 2.1.4 -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <script src="//cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+  <script src="//cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js"></script>
 
-<!-- allow users to download tables as csv and excel -->
-<script src="../../js/excellentexport.min.js"></script>
+  <!-- allow users to download tables as csv and excel -->
+  <script src="../../js/excellentexport.min.js"></script>
 
-<!-- Bootstrap Core JavaScript -->
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-<script type="text/javascript" src="js/all.js"></script>
+  <script type="text/javascript" src="js/all.js"></script>
 
 </body>
 
