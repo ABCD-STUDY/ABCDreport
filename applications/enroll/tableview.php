@@ -1,35 +1,18 @@
 <?php
   session_start();
 
-  include("../../code/php/AC.php");
+  include($_SERVER["DOCUMENT_ROOT"]."/code/php/AC.php");
   $user_name = check_logged(); /// function checks if visitor is logged.
   $admin = false;
 
   if ($user_name == "") {
     // user is not logged in
-    alert("User is not logged in");
+
   } else {
-
-    // store the user_name
+    $admin = true;
     echo('<script type="text/javascript"> user_name = "'.$user_name.'"; </script>'."\n");
-
-    // store the list of roles
-    $roles = list_roles($user_name);
-    //print_r($roles);
-    $r = "<script type=\"text/javascript\"> roles = [";
-    foreach($roles as $role) {
-      $r = $r."\"".$role."\",";
-    }
-    echo ($r."]; </script>\n");
-
-    // store the admin flag
-    if (check_role("admin")) {
-     $admin = true;
-    }
-    echo('<script type="text/javascript"> admin = '.($admin?"true":"false").'; </script>');
-
+    echo('<script type="text/javascript"> admin = '.($admin?"true":"false").'; </script>'."\n");
   }
-  
 ?>
 
 <!DOCTYPE html>
