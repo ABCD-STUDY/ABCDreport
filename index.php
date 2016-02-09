@@ -102,17 +102,17 @@
       <main class="mdl-layout__content mdl-color--grey-100">
 
 	<div class="mdl-grid">
-	  <div class="mdl-cell--3--col mdl-cell mdl-shadown--2dp assessment-block-tlfb assessment-block">
+	  <div class="mdl-cell--3--col mdl-cell mdl-shadown--2dp assessment-block-tlfb assessment-block"><a href="/applications/timeline-followback/index.php">
 	    <div class="assessment-text">
-              <div class="mdl-typography--display-2 mdl-typography--font-thin"><a class="a-only-inherit" href="/applications/timeline-followback/index.php">Timeline Followback</a></div>
+              <div class="mdl-typography--display-2 mdl-typography--font-thin">Timeline Followback</div>
 	      <p class="mdl-typography--headline mdl-typography--font-thin">Capture substance use profiles</p>
-            </div>
+            </div></a>
 	  </div>
-	  <div class="mdl-cell--3--col mdl-cell mdl-shadown--2dp assessment-block-lmt assessment-block">
+	  <div class="mdl-cell--3--col mdl-cell mdl-shadown--2dp assessment-block-lmt assessment-block"><a href="/applications/little-man-task/index.php">
 	    <div class="assessment-text">
               <div class="mdl-typography--display-2 mdl-typography--font-thin">Little Man Task</div>
 	      <p class="mdl-typography--headline mdl-typography--font-thin">Mental rotation on speed</p>
-            </div>
+            </div></a>
 	  </div>
 	  <div class="mdl-cell--3--col mdl-cell mdl-shadown--2dp assessment-block">
 	    <div class="assessment-text">
