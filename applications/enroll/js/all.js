@@ -26,6 +26,10 @@ function reloadContacts() {
 	});
 }
 
+// triggered when the user presses the search button
+jQuery('#search-button').click(function() {
+});
+
 jQuery('document').ready(function() {
 
 	if (typeof user_name != 'undefined') {

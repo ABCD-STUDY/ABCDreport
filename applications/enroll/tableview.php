@@ -68,6 +68,39 @@
     </div><!-- /.container-fluid -->
   </nav>
 
+  <div class="container">
+    <div class="col-md-6">
+
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="name">Name</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" placeholder="Parent's First & Last Name" id="name">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="email">Email</label>
+        <div class="col-sm-9">
+          <input type="email" class="form-control" placeholder="example@domain.com" id="email">
+        </div>  
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="phone">Phone</label>
+        <div class="col-sm-9">
+          <input type="email" class="form-control" placeholder="(858) 555-1212" id="phone">
+        </div>  
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-9 col-sm-offset-3">
+          <button id="search-button" type="button" class="btn btn-primary"> Search</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
   <!-- List of contacts -->
   <div class="container">
     <table class="table-striped table table-condensed" id="contacts-table">
