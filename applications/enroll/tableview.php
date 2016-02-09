@@ -34,41 +34,56 @@
 </head>
 
 <body id="page-top" class="index">
-  <div class="container">
 
-    <h1 class="page-header text-center">ABCD Study Contacts</h1>
-
-    <!-- User administration -->
-    <div>
-      <div>
-        <a href="#" class="btn btn-primary" onclick="logout();">Logout</a>
-        <label>Logged in as: </label><label id="user_name"></label>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">ABCD Study Contacts</a>
       </div>
-      <div>
-        <a href="../User/admin.php" class="btn btn-primary" id="user_admin_button">User Administration</a>
-        <label>Roles: </label><label id="roles"></label>
-      </div>
-    </div>
-    <hr>
 
-    <!-- List of contacts -->
-    <div>
-      <table class="table-striped table table-condensed" id="contacts-table">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>ID</th>
-            <th>Opted</th>
-            <th>School name</th>
-            <th>Preferred contact</th>
-            <th>Referred by</th>
-          </tr>
-        </thead>
-        <tbody id="contacts-list"></tbody>
-      </table>
-    </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/index.php" title="Back to report page">Report</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#" class="connection-status" id="connection-status">Connection Status</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span id="session-active">User</span> <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#" id="user_name"></a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#" onclick="logout();">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div><!-- /.collapse navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
 
-</div>
+  <!-- List of contacts -->
+  <div>
+    <table class="table-striped table table-condensed" id="contacts-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>ID</th>
+          <th>Opted</th>
+          <th>School name</th>
+          <th>Preferred contact</th>
+          <th>Referred by</th>
+        </tr>
+      </thead>
+      <tbody id="contacts-list"></tbody>
+    </table>
+  </div>
 
 <!-- jQuery Version 2.1.4 -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
