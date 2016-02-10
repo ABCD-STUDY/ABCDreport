@@ -403,6 +403,9 @@ _:-ms-input-placeholder, :root .demo-graph {
 .assessment-block-tlfb {
     background: rgba(0, 0, 0, 0) url("/images/Timeline.jpg") no-repeat scroll center top / cover ;
 }
+.assessment-block-enroll {
+    background: rgba(0, 0, 0, 0) url("/images/enroll.png") no-repeat scroll center top / cover ;
+}
 .assessment-text {
     background-color: #37474f;
     height: 100px;
