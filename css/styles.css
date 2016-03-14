@@ -400,6 +400,9 @@ _:-ms-input-placeholder, :root .demo-graph {
 .assessment-block-lmt {
     background: rgba(0, 0, 0, 0) url("/images/6.png") no-repeat scroll center top / cover ;
 }
+.assessment-block-stroop {
+    background: rgba(0, 0, 0, 0) url("/images/RESPMAP.BMP") no-repeat scroll center top / cover ;
+}
 .assessment-block-tlfb {
     background: rgba(0, 0, 0, 0) url("/images/Timeline.jpg") no-repeat scroll center top / cover ;
 }
