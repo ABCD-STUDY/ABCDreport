@@ -130,6 +130,13 @@
             </div></a>
 	  </div>
 
+	  <div class="mdl-cell--3--col mdl-cell mdl-shadown--2dp assessment-block-delay-discounting assessment-block"><a href="/applications/delay-discount/index.php">
+	    <div class="assessment-text">
+              <div class="mdl-typography--display-2 mdl-typography--font-thin">Delay-Discounting</div>
+	      <p class="mdl-typography--headline mdl-typography--font-thin">A buck now?</p>
+            </div></a>
+	  </div>
+	  
         </div>
 	  <!--         <div class="mdl-grid">
           <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" style="position: relative; height: 450px;">
