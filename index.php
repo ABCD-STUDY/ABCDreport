@@ -114,7 +114,7 @@
 	      <p class="mdl-typography--headline mdl-typography--font-thin">Mental rotation on speed</p>
             </div></a>
 	  </div>
-	  <div class="mdl-cell--3--col mdl-cell mdl-shadown--2dp assessment-block-enroll assessment-block"><a href="/applications/enroll/tableview.php">
+	  <div class="mdl-cell--3--col mdl-cell mdl-shadown--2dp assessment-block-enroll assessment-block"><a href="/applications/enroll/viewContacts.php">
 	    <div class="assessment-text">
               <div class="mdl-typography--display-2 mdl-typography--font-thin">Enrollment</div>
 	      <p class="mdl-typography--headline mdl-typography--font-thin">Hub/Site/School/Parents status</p>
