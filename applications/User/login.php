@@ -2,6 +2,7 @@
 session_start();
 include("../../code/php/AC.php");
 
+$incorrect = '';
 if (isset($_POST["ac"]) && $_POST["ac"]=="log") { /// do after login form is submitted
      if ($USERS[$_POST["username"]]==$_POST["pw"]) { /// check if submitted username and password exist in $USERS array
      	  // as a features users can login using their email address
@@ -14,7 +15,7 @@ if (isset($_POST["ac"]) && $_POST["ac"]=="log") { /// do after login form is sub
           }
      } else {
           audit( "login", "incorrect password name for ".$_POST["username"] );
-          echo 'Incorrect username/password. Please, try again.';
+	  $incorrect = 'Incorrect username/password. Please, try again.';
      };
 };
 print_r(array_key_exists($_SESSION["logged"],$USERS));
@@ -50,6 +51,12 @@ if (array_key_exists($_SESSION["logged"],$USERS)) {
         <!--[if lt IE 9]>
           <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
+
+<?php
+        if ( $incorrect != "") {
+          echo ("<script> incorrect = \"".$incorrect."\";</script>");
+	}
+?>
 
 </head>
 <body class="index" id="top">
@@ -88,6 +95,11 @@ if (array_key_exists($_SESSION["logged"],$USERS)) {
 
   <script type="text/javascript">
      jQuery(document).ready(function() {
+        if (typeof incorrect !== 'undefined') {
+	   // should do a propper dialog here
+           alert('Wrong user name or wrong password, please try again.');
+        }
+
         // prevent enter in the user field to submit form
         jQuery('input').keydown(function(event) {
            if (event.keyCode == 13) {
