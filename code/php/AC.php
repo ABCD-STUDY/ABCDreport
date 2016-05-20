@@ -124,9 +124,11 @@
     $highestID = 0;
     foreach ($d['users'] as $user) {
        if ($name == $user['name']) {
+          audit( "addUser", "Error: ".$name." ".$email." ".$fullname." ".$organization." a user identified by this name exists already" );
           $found = true;
        }
        if ($email == $user['email']) {
+          audit( "addUser", "Error: ".$name." ".$email." ".$fullname." ".$organization." a user identified by this email exists already" );
           $found = true;
        }
        if ($user['id'] > $highestID)
