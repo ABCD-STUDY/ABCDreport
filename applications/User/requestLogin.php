@@ -77,10 +77,10 @@ $sponsor = $sponsor."sponsor email: ".$sponsor_email."<br/>";
 $msg = '
 <html>
 <head>
-<title>Data use request</title>
+<title>Access request</title>
 </head>
 <body>
-<p>The following data use request has been received:</p>
+<p>The following access request has been received for abcd-report.ucsd.edu:</p>
 '.'Date: '.$now.'<br/>
 '.'Name: '.$username.'<br/>
 '.'Role: '.$role.'<br/>
