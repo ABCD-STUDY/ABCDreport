@@ -34,7 +34,7 @@ if (array_key_exists($_SESSION["logged"],$USERS)) {
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Login to ABCD REPRT">
+	<meta name="description" content="Login to ABCD REPORT">
 	<title>Login to the ABCD Report page</title>
 
 	<!--[if lt IE 9]>
