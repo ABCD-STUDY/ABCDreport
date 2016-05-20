@@ -57,8 +57,9 @@ if (array_key_exists($_SESSION["logged"],$USERS)) {
    <div class="row">
      <div class="hero-unit">
        <h1>ABCD Report</h2>
+       <center><i>A service provided by the <a href="https://abcd-workspace.ucsd.edu">Data Analysis and Informatics Core</a> of <a href="http://abcdstudy.org">ABCD</a></i></center>
        <p class="lead">
-         This page requires a login. Logins are provided by the system administration.
+         This page requires a login. Logins are provided by your system administration.
        </p>
      </div>
    </div>
