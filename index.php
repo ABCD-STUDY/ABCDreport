@@ -142,8 +142,18 @@
 	      <p class="mdl-typography--headline mdl-typography--font-thin">fMRI Imaging</p>
             </div></a>
 	  </div>
-	  
+
+
         </div>
+
+	<div class="mdl-grid">
+  	  <div style="margin: 20px;" class="mdl-cell--12--col mdl-shadown--2dp">
+	    <h4>PII Database access</h4>
+	    <p>Access to the PII database requires a VPN connection to vpn.ucsd.edu with a user account that has been added to the @MIL group. Without such an account you will not be able to reach the PII database.</p>
+	    <p>In case you have a valid VPN connection established and you still cannot reach the PII database please check if your machine is using a web-proxy to connect to the internet. VPN connection that go through web-proxys will not result in valid connections. Most likely you will receive a "Tunnel" error in your web-browser if you try to connect. Web-proxy settings are available in your computers system settings. Please consult with your local IT to allow a direct connection of your computer to the ABCD PII database system.</p>
+	  </div>
+        </div>
+	  
 
 
 	  <!--         <div class="mdl-grid">
@@ -429,6 +439,7 @@
     <script src="js/enrollment.js"></script>
     <script src="js/sesbysite.js"></script>
     <script src="js/lines.js"></script>
+    <script src="js/md5-min.js"></script>
     <script src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js'></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.min.js"></script>
     <script>
