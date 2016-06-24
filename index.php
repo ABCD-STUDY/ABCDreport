@@ -24,10 +24,11 @@
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/dialog-polyfill.css">
     <link rel="stylesheet" href="css/material.min.css">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.print.css" media="print"> 
+    <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.print.css" media="print">  -->
 
     <style>
     #view-source {
@@ -66,7 +67,7 @@
             <i class="material-icons">account_box</i>
           </button>
           <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="account">
-            <li class="mdl-menu__item">change password</li>
+            <li class="mdl-menu__item" id="change-password">change password</li>
             <li class="mdl-menu__item" onclick="logout();">logout</li>
           </ul>
 	  <span class="user_name" title="Current user">unknown</span>
@@ -111,22 +112,20 @@
 	  <div class="mdl-cell--3--col mdl-cell mdl-shadown--2dp assessment-block-lmt assessment-block"><a href="/applications/little-man-task/index.php">
 	    <div class="assessment-text">
               <div class="mdl-typography--display-2 mdl-typography--font-thin">Little Man Task</div>
-	      <p class="mdl-typography--headline mdl-typography--font-thin">Mental rotation on speed</p>
+	      <p class="mdl-typography--headline mdl-typography--font-thin">Mental rotation</p>
             </div></a>
 	  </div>
-	  <div class="mdl-cell--3--col mdl-cell mdl-shadown--2dp assessment-block-enroll assessment-block"><a href="/applications/enroll/viewContacts.php">
+	  <div class="mdl-cell--3--col mdl-cell mdl-shadown--2dp assessment-block-enroll assessment-block"><a href="https://abcdcontact.me:8888" title="requires access to VPN @MIL">
 	    <div class="assessment-text">
-              <div class="mdl-typography--display-2 mdl-typography--font-thin">Enrollment</div>
-	      <p class="mdl-typography--headline mdl-typography--font-thin">Hub/Site/School/Parents status</p>
+              <div class="mdl-typography--display-2 mdl-typography--font-thin">PII Database</div>
+	      <p class="mdl-typography--headline mdl-typography--font-thin">VPN access required</p>
             </div></a>
 	  </div>
-	</div>
-	
-	<div class="mdl-grid">
+
 	  <div class="mdl-cell--3--col mdl-cell mdl-shadown--2dp assessment-block-stroop assessment-block"><a href="/applications/stroop/index.php">
 	    <div class="assessment-text">
               <div class="mdl-typography--display-2 mdl-typography--font-thin">Stroop Test</div>
-	      <p class="mdl-typography--headline mdl-typography--font-thin">Inhibited enough?</p>
+	      <p class="mdl-typography--headline mdl-typography--font-thin">Color/Word test</p>
             </div></a>
 	  </div>
 
@@ -136,8 +135,17 @@
 	      <p class="mdl-typography--headline mdl-typography--font-thin">A buck now?</p>
             </div></a>
 	  </div>
+
+	  <div class="mdl-cell--3--col mdl-cell mdl-shadown--2dp assessment-block-aux-file-upload assessment-block"><a href="/applications/aux-file-upload/index.php">
+	    <div class="assessment-text">
+              <div class="mdl-typography--display-2 mdl-typography--font-thin">File Upload</div>
+	      <p class="mdl-typography--headline mdl-typography--font-thin">fMRI Imaging</p>
+            </div></a>
+	  </div>
 	  
         </div>
+
+
 	  <!--         <div class="mdl-grid">
           <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" style="position: relative; height: 450px;">
               <div id="map-canvas" style="position: absolute; left: 0px; top: 0px; overflow: hidden; width: 100%; height: 100%; z-index: 0"></div>
@@ -364,6 +372,29 @@
       
     </div>
 
+    <dialog class="mdl-dialog" id="change-password-dialog">
+      <h4 class="mdl-dialog__title">Change Password</h4>
+      <div class="mdl-dialog__content">
+	<p>
+	  <form>
+	    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+  	      <input class="mdl-textfield__input" id="password-field1" type="password" autofocus="">
+	      <label class="mdl-textfield__label" for="password-field1">Enter new password</label>
+	    </div>
+	    <br>
+	    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+  	      <input class="mdl-textfield__input" id="password-field2" type="password">
+	      <label class="mdl-textfield__label" for="password-field1">Enter new password again</label>
+	    </div>
+	  </form>
+	</p>
+      </div>
+      <div class="mdl-dialog__actions">
+	<button class="button btn mdl-button close" type="button">Cancel</button>
+	<button class="button btn mdl-button mdl-button--raised mdl-js-ripple-effect close" onclick="changePassword();" type="button">Submit</button>
+      </div>
+    </dialog>
+    
       <div id="tooltip-container">
          <div class="tooltip_kv">
             <span class="tooltip_key"></span>
@@ -386,6 +417,7 @@
       </svg>
     <!--  <a href="https://github.com/google/material-design-lite/blob/master/templates/dashboard/" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">View Source</a> -->
     <script src="js/material.min.js"></script>
+    <script src="js/dialog-polyfill.js"></script>
     <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
     <!--   <script src="http://media.flowingdata.com/js/d3.time.js?1.29.1" type="text/javascript"></script> -->
@@ -416,9 +448,37 @@ function logout() {
       var marker = [];
       var infowindows = [];
 
+      function changePassword() {
+	  var password = jQuery('#password-field1').val();
+	  var password2 = jQuery('#password-field2').val();
+	  if (password == "") {
+	      alert("Error: Password cannot be empty.");
+	      return; // no empty passwords
+	  }
+	  hash = hex_md5(password);
+	  hash2 = hex_md5(password2);
+	  if (hash !== hash2) {
+	      alert("Error: The two passwords are not the same, please try again.");
+	      return; // do nothing
+	  }
+	  jQuery.getJSON('/code/php/getUser.php?action=changePassword&value=' + user_name + '&value2=' + hash, function(data) {
+	      // did this work?
+	  });
+      }
       
       jQuery(document).ready(function() {          
 
+         jQuery('#change-password').click(function() {
+            var dialog = document.getElementById('change-password-dialog');
+            if (! dialog.showModal) {
+                dialogPolyfill.registerDialog(dialog);
+            }
+            dialog.showModal();
+            dialog.querySelector('.close').addEventListener('click', function() {
+                 dialog.close();
+            });
+         });
+      
          jQuery('.user_name').text(user_name);
 
       // create map
