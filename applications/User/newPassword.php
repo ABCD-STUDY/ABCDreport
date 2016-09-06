@@ -7,7 +7,7 @@ if (isset($_POST["email"])) {
    $email = $_POST["email"];
    $name = getUserNameFromEmail($email);
    //echo "Found this name: ".$name." in our records";
-   if ($name == "unknown") {
+   if (($email == "") || ($name == "unknown")) {
       audit( "newPassword", "account does not exist ".$_POST["email"] );
       echo "<script>message = \"This account does not exist.\";</script>";
    } else {
